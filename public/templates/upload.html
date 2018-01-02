@@ -1,0 +1,13 @@
+<div class="nav"> ////////// <a ui-sref="home">HOME</a> ///// <a ui-sref="uploadImage">UPLOAD</a> ///// <a ui-sref="imageMap">ABOUT</a> ////////// </div>
+
+
+<div ng-controller="uploadController" id="upload-controller">
+    <form id="upload-form" method="POST" ng-submit="submit()">
+        <input ng-model="file" type="file" name="file"><br>
+        <input ng-model="username" type="text" name="username" placeholder="Username"><br>
+        <input ng-model="title" type="text" name="title" placeholder="Title"><br>
+        <input ng-model="description" type="text" name="description" placeholder="Description"><br>
+        <button type="submit" name="button">Upload Image</button>
+    </form>
+    {{message}}
+</div>

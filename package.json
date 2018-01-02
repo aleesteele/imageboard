@@ -1,0 +1,24 @@
+{
+  "name": "anne_imageboard",
+  "version": "1.0.0",
+  "description": "this is the imageboard project of aleesteele",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+      "node": "9.3.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "knox": "^0.9.2",
+    "multer": "^1.2.0",
+    "spiced-pg": "spicedacademy/spiced-pg",
+    "uid-safe": "^2.1.4"
+  }
+}

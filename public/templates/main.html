@@ -1,0 +1,15 @@
+<div class="nav"> ////////// <a ui-sref="home">HOME</a> ///// <a ui-sref="uploadImage">UPLOAD</a> ///// <a ui-sref="imageMap">ABOUT</a> ////////// </div>
+
+<div ng-controller="ImageBoardController" id="img-controller">
+    <div ng-if="images.length > 0" id="repeat" > <!-- images are the things we're getting-->
+        <div ng-repeat="image in images | limitTo: limit" class="img-repeat">
+            <a ui-sref="singleImage({ imageId: {{ image.id }} })">
+                <img src="https://s3.amazonaws.com/imgboard-anne-sp/{{image.image}}" class="main">
+            </a>
+            <div class="info"><p class="main">{{image.title}} <br> {{image.description}} <br> by {{image.username}}</p></div>
+            <br/>
+        </div>
+    </div>
+    <!-- <button class="button" ng-click="loadMore()" id="loadMore">CLICK TO LOAD MORE</button> -->
+</div>
+<button class="button" ng-click="loadMore()" id="loadMore">CLICK TO LOAD MORE</button>

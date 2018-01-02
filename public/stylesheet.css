@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    font-family: georgia;
+    text-align: center;
+    align-items: center;
+}
+
+
+
+
+
+/*EVERYTHING*/
+
+body {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+}
+
+input[type="text"], input[type="file"], button {
+    width: 300px;
+}
+
+input[ng-model="comment"] {
+    height: 60px;
+}
+
+h1 {
+    font-size: 70px;
+    align-content: left;
+
+}
+
+h3 {
+    align-content: left;
+}
+a {
+    color: #000000;
+}
+
+p {
+    font-size: 10px;
+}
+
+.nav {
+    font-size: 10px;
+    color: #000000;
+    border: 1px black dashed;
+    height: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    margin: 10px;
+    /*text-align:justify;*/
+}
+
+/*button#morePhotos {
+    background-color: #000000;
+    height: 100%;
+}*/
+
+
+
+
+
+
+
+/*MAIN PAGE*/
+h1[class="title"] {
+    font-family: old-english;
+    text-align: center;
+}
+
+#img-controller { /*outside div*/
+    display: flex;
+}
+
+div#repeat {
+    display: flex;
+    max-width: 100%;
+    height: 80%;
+    overflow: scroll;
+    padding: 10px;
+    margin: 10px;
+}
+
+div.img-repeat { /*middle div*/
+    display: flex;
+    max-width: 10%;
+    min-height: 20%;
+    padding: 10px;
+    margin: 10px;
+}
+
+img.main { /*actual photo*/
+    max-height: 500px;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+p.main { /*bottom stuff*/
+    justify-content: left;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+div.info {
+    height: 100%;
+}
+
+
+
+
+
+
+
+/*SINGLE IMAGE*/
+#single-img-controller {
+    max-width: 100%;
+    /*display: flex;*/
+}
+
+img.singleImage {
+    max-height: 80%;
+    max-width: 80%;
+    /*display: flex;*/
+}
+
+#show-comment {
+    /*display: flex;*/
+    background-color: black;
+    color: #FFFFFF;
+    font-size: 10px;
+    border: 1px black dashed;
+    height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+/* UPLOAD IMAGE */
+#upload-controller  {
+
+}
+
+#upload-form {
+
+}
+
+
+/*ANIMATION*/
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
