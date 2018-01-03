@@ -8,4 +8,4 @@ An instagram-like, single-page application for uploading photographs. I built th
 - **Databases**: PostgreSQL, AWS S3
 
 ## Description
-We made the petition in order to learn about the popular Angular library, and practice generating templates with Handlebars.
+We made the imageboard in order to learn about the popular Angular library, and practice generating templates with Handlebars.
