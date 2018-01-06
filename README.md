@@ -21,7 +21,7 @@ Viewers or other users also have the opportunity to comment on each other's phot
 ## Improvements
 - Fix bug with photo information/label
 - Add carousel of images behind title
-- Redis/Csurf
+- Redis/csurf
 
 ## Contact
 - Email: aleesteele@gmail.com
