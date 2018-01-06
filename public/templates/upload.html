@@ -1,5 +1,8 @@
-<div class="nav"> ////////// <a ui-sref="home">HOME</a> ///// <a ui-sref="uploadImage">UPLOAD</a> ///// <a ui-sref="imageMap">ABOUT</a> ////////// </div>
-
+<div class="nav">
+    <a ui-sref="home"><img src="/public/home.png" alt="by Aiden Icons of thenounproject" class="nav-img"></a>
+    <a ui-sref="uploadImage"><img src="/public/upload-icon.png" alt="by Serkan Doğan of thenounproject" class="nav-img"></a>
+    <a ui-sref="imageMap"><img src="/public/about.png" alt="by Chinnaking of thenounproject" class="nav-img"></a>
+</div>
 
 <div ng-controller="uploadController" id="upload-controller">
     <form id="upload-form" method="POST" ng-submit="submit()">

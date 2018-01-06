@@ -1,15 +1,34 @@
-<div class="nav"> ////////// <a ui-sref="home">HOME</a> ///// <a ui-sref="uploadImage">UPLOAD</a> ///// <a ui-sref="imageMap">ABOUT</a> ////////// </div>
+<div class="nav">
+    <a ui-sref="home"><img src="/public/home.png" alt="by Aiden Icons of thenounproject" class="nav-img"></a>
+    <a ui-sref="uploadImage"><img src="/public/upload-icon.png" alt="by Serkan Doğan of thenounproject" class="nav-img"></a>
+    <a ui-sref="imageMap"><img src="/public/about.png" alt="by Chinnaking of thenounproject" class="nav-img"></a>
+</div>
+
+<!-- <div id="carousel">
+    <img src="/public/images/carousel1.jpg" class="carousel-imgs current">
+    <img src="/public/images/carousel2.jpg" class="carousel-imgs stack">
+    <img src="/public/images/carousel3.jpg" class="carousel-imgs stack">
+    <img src="/public/images/carousel4.jpg" class="carousel-imgs stack">
+</div>
+
+<div id="dots">
+    <div class="dots active"></div>
+    <div class="dots"></div>
+    <div class="dots"></div>
+    <div class="dots"></div>
+</div> -->
 
 <div ng-controller="ImageBoardController" id="img-controller">
-    <div ng-if="images.length > 0" id="repeat" > <!-- images are the things we're getting-->
+    <div ng-if="images.length > 0" id="repeat" >
         <div ng-repeat="image in images | limitTo: limit" class="img-repeat">
             <a ui-sref="singleImage({ imageId: {{ image.id }} })">
+                <div class="info">
+                    <p class="main-label">{{image.title}} <br> {{image.description}} <br> by {{image.username}}</p>
+                </div>
                 <img src="https://s3.amazonaws.com/imgboard-anne-sp/{{image.image}}" class="main">
             </a>
-            <div class="info"><p class="main">{{image.title}} <br> {{image.description}} <br> by {{image.username}}</p></div>
             <br/>
         </div>
     </div>
-    <!-- <button class="button" ng-click="loadMore()" id="loadMore">CLICK TO LOAD MORE</button> -->
 </div>
 <button class="button" ng-click="loadMore()" id="loadMore">CLICK TO LOAD MORE</button>

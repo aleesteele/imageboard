@@ -1,12 +1,43 @@
-var imageboardApp = angular.module('imageboardApp', ['app.routes'])
-// console.log('THIS IS IMAGEBOARDAPP', imageboardApp)
+const imageboardApp = angular.module('imageboardApp', ['app.routes'])
+var images = document.getElementsByClassName("carousel-imgs");
+var dots = document.getElementsByClassName("dots");
+var photo = document.getElementsByClassName(".main-label")
+var max = images.length;
+var visible = 0;
+
+
+//carousel
+function move() {
+
+    images[visible].classList.replace('current', 'exit');
+    dots[visible].classList.remove('active');
+    visible++;
+
+    if (visible >= max) {
+        visible = 0;
+    };
+
+    images[visible].classList.replace('stack', 'current');
+    dots[visible].classList.add('active');
+
+    //MAKE DOTS REACTIVE TO CLICKING!!
+}
+setTimeout(move, 3000);
+
+document.addEventListener('transitionend', function(e) {
+    e.target.classList.replace('exit', 'stack');
+});
+
+// photo.addEventListener("mouseover", function(e) {
+//
+// })
 
 imageboardApp.controller('ImageBoardController', ($scope, $http) => {
     console.log('initializing imageboardApp controller')
-    $http.get('/images').then((resp) => { //OHHHHHH!!!!!!!!!!
-        $scope.images = resp.data; // console.log('THIS IS RESP', resp)
-        console.log('THIS IS $SCOPE.IMAGES', $scope.images);
-        console.log('THIS IS RESP.DATA', resp.data);
+    $http.get('/images').then((resp) => {
+        $scope.images = resp.data;
+        // console.log('scope.images', $scope.images);
+        // console.log('resp.data', resp.data);
         // console.log('THIS IS $SCOPE.IMAGES[0]', $scope.images[0]);
         // var commentObj = resp.data[1];
         // console.log('this is commentobj', commentObj);
@@ -45,7 +76,7 @@ imageboardApp.controller('uploadController', ($scope, $http, $state) => {
             headers: { 'Content-Type': undefined },
             transformRequest: angular.identity
         }).then(() => {
-            console.log('did it upload?????? YES!!!');
+            console.log('image uploaded || script.js');
             $state.reload();
         }).catch((err) => { console.log('ERR WITH HTTP', err); })
     }
@@ -61,11 +92,8 @@ imageboardApp.controller('singleImageController', ($scope, $http, $stateParams) 
 imageboardApp.controller('showCommentController', ($scope, $http, $stateParams) => {
     console.log('initializing showCommentController controller')
     $http.get('/singleImage/' + $stateParams.imageId).then((resp) => { //response
-        // console.log('RESP FOR COMMENTS', resp)
         console.log('RESP.DATA FOR COMMENTS', resp.data[1])
         $scope.comments = resp.data[1];
-        // console.log('trying stuff:', comments.image_id)
-        // $scope.comment
         if (resp.data[1] === null) {
             $scope.comment = "";
         } else {

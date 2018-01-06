@@ -21,13 +21,13 @@ const client = knox.createClient({
 
 //*------------------UPLOAD TO AWS------------------*//
 module.exports.upload = function(file) {
-    return new Promise(function(resolve, reject) { //THIS IS FROM MY NOTES... I DON'T UNDERSTAND
+    return new Promise(function(resolve, reject) {
         const s3Request = client.put(file.filename, {
             'Content-Type': file.mimetype,
             'Content-Length': file.size,
             'x-amz-acl': 'public-read'
         });
-        const readStream = fs.createReadStream(file.path); //fs.createWriteStream(path[, options]); fs.exists(path, callback)
+        const readStream = fs.createReadStream(file.path);
         readStream.pipe(s3Request);
         s3Request.on('response', s3Response => {
             const wasSuccessful = s3Response.statusCode == 200;
@@ -35,7 +35,7 @@ module.exports.upload = function(file) {
                 resolve()
             }
             else {
-                s3Response.statusCode == 404; //not right but indicates that an error is needed!
+                s3Response.statusCode == 404; 
                 reject()
             }
         })
