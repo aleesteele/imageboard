@@ -28,9 +28,9 @@ document.addEventListener('transitionend', function(e) {
     e.target.classList.replace('exit', 'stack');
 });
 
-// photo.addEventListener("mouseover", function(e) {
-//
-// })
+photo.addEventListener("mouseover", function(e) {
+
+})
 
 imageboardApp.controller('ImageBoardController', ($scope, $http) => {
     console.log('initializing imageboardApp controller')
